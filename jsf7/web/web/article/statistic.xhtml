@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                <h:form>
+                    <p:panelGrid columns="4">
+                        <p:clock pattern="dd/MM/yyyy" />
+                        <p:clock pattern="hh:mm:ss " />
+                        <p:outputLabel value="Select Calendar"/>
+                        <p:calendar id="cal"  navigator="true" />
+                    </p:panelGrid>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                Footer
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="250" header="Menu" collapsible="true">
+             <h:form id="form2">
+                        <p:menu>
+                            <p:submenu label="Gestion des Articles">
+                                <p:menuitem value="G. Article" outcome="/web/article/articleForm.xhtml" icon="ui-icon-check"/>
+                                <p:menuitem value="G. Categorie" outcome="/web/categorie/categorieForm.xhtml" icon="ui-icon-check"/>
+                         
+                            </p:submenu>
+                        </p:menu> 
+                        <p:menu>
+                              <p:submenu label="Statistqiues">
+                                 <p:menuitem value="Articles. P .Categorie" outcome="/web/article/ArticleParCategorie.xhtml" icon="ui-icon-star"/>
+                                      <p:menuitem value="Dashboard" outcome="/web/article/statistic.xhtml" icon="ui-icon-star"/>
+                              </p:submenu>
+                        </p:menu>
+                    </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <p:panel header="Statistiques">
+                    <p:panelGrid columns="2">
+                        <p:barChart value="#{categorieBean.initBarModel()}" title="Nombre de Articles par Categorie" style="width : 600px; height: 400px"/>
+                       
+                    </p:panelGrid>
+                </p:panel></p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

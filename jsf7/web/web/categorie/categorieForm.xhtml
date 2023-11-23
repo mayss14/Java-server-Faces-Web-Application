@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <h:form>
+                        <p:panelGrid columns="4">
+                            <p:clock pattern="dd/MM/yyyy hh:ss:mm" />
+                            <p:clock pattern="hh:mm:ss" />
+                            <p:outputLabel value="Select Calendar"/>
+                            <p:calendar id="cal"  navigator="true" style="align: right;" />
+                        </p:panelGrid>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="290" header="Menu" collapsible="true">
+                   <h:form id="form2">
+                        <p:menu>
+                            <p:submenu label="Gestion des Articles">
+                                <p:menuitem value="G. Article" outcome="/web/article/articleForm.xhtml" icon="ui-icon-check"/>
+                                <p:menuitem value="G. Categorie" outcome="/web/categorie/categorieForm.xhtml" icon="ui-icon-check"/>
+                           
+                            </p:submenu>
+                        </p:menu> 
+                        <p:menu>
+                              <p:submenu label="Statistqiues">
+                                 <p:menuitem value="Articles. P .Categorie" outcome="/web/article/ArticleParCategorie.xhtml" icon="ui-icon-star"/>
+                                      <p:menuitem value="Dashboard" outcome="/web/article/statistic.xhtml" icon="ui-icon-star"/>
+                              </p:submenu>
+                        </p:menu>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form id="f1">
+                        <p:panel header="Gestion des Categories">
+                            <p:panelGrid columns="2" id="p1">
+                                <p:outputLabel value="Nom"/>
+                                <p:inputText value="#{categorieBean.cat.nom}"/>
+                                <p:outputLabel value="Sous Categorie"/>
+
+                                <p:selectOneMenu value="#{categorieBean.catParent.id}"  >
+                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                                    <f:selectItems value="#{categorieBean.cats}" var="c"
+                                                   itemLabel="#{c.nom}" itemValue="#{c.id}" />
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+                            <p:commandButton value="Ajouter" actionListener="#{categorieBean.onCreateAction()}" update=":form:tab, f1:p1"/>
+                        </p:panel>
+                    </h:form>
+
+                    <h:form id="form">
+                        <p:growl id="messages" showDetail="true"/>
+
+                        <p:dataTable var="a" value="#{categorieBean.cats}" id="tab" editable="true" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+
+                            <f:facet name="header">
+                                Liste des Categories
+                            </f:facet>
+
+                            <p:ajax event="rowEdit" listener="#{categorieBean.onEdit}" update=":form:messages" />
+                            <p:ajax event="rowEditCancel" listener="#{categorieBean.onCancel}" update=":form:messages" />
+
+                            <p:column headerText="Nom" style="width:30%">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{a.nom}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{a.nom}" style="width:100%"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Sous Categorie" style="width:20%">
+                                <p:cellEditor>
+
+                                    <f:facet name="output">
+                                        <h:outputText value="#{a.catParent != null ? a.catParent.nom : 'None'}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:selectOneMenu value="#{categorieBean.catParent.id}"  required="true" style="width: 100px;"  >
+                                            <f:selectItem itemLabel="Select One" itemValue="" />
+                                            <f:selectItems value="#{categorieBean.cats}" var="c"
+                                                           itemLabel="#{c.nom}" itemValue="#{c.id}" />
+                                        </p:selectOneMenu>
+                                    </f:facet>
+
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Modifier" style="width:20%">
+                                <p:rowEditor />
+                            </p:column>
+
+                            <p:column headerText="Supprimer" style="width:20%">
+                                <p:commandButton id="Supprimer" icon="ui-icon-trash"
+                                                 update=":form:confirmDialog" oncomplete="PF('confirmation').show();"
+                                                 title="Supprime">
+                                    <f:setPropertyActionListener target="#{categorieBean.cat}"
+                                                                 value="#{a}" />
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:dialog id="confirmDialog" showEffect="fade"
+                                  header="Suppression d'une categorie" 
+                                  widgetVar="confirmation">
+                            <h:panelGrid id="display" columns="2" cellpadding="4"
+                                         style="margin:0 auto;" />
+                            <h:inputHidden value="#{categorieBean.cat.id}" id="supp"
+                                           required="true" />
+
+                            <p:outputLabel
+                                value="Etes vous sûr de vouloir supprimer cette categorie ?" />
+                            <p:commandButton id="confirm" value="Oui"
+                                             update="messages,:form:tab" oncomplete="PF('confirmation').hide();location.reload();"
+                                             actionListener="#{categorieBean.onDeleteAction()}" />
+                            <p:commandButton id="decline" value="Non"
+                                             onclick="PF('confirmation').hide()" type="button" />
+
+                        </p:dialog>
+                    </h:form>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+
+        </h:body>
+
+    </f:view>
+</html>
