@@ -31,6 +31,12 @@ Une fonctionnalité de visualisation statistique est intégrée, permettant de g
 # Dashboard pour montrer le nombre d'Articles par Categorie
 ![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/4e94d178-426b-4440-8135-c56e86d9e920)
 
+# Les donnees sont bien enregistrees dans la BD
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/97765507-1480-4429-af40-322155639de9)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/5eb360f7-5c6d-4efe-91b9-a5dc12788511)
+
+
+
 
 
 
