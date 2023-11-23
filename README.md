@@ -11,29 +11,35 @@ Les articles peuvent être associés à une catégorie spécifique, facilitant l
 
 ## Visualisation Statistique :
 Une fonctionnalité de visualisation statistique est intégrée, permettant de générer un graphique indiquant le nombre d'articles par catégorie.
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/5b87dca6-08a9-4b04-84a4-27d90fd2ca1b)
+# La conception du Projet
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/faf42024-97cb-4b89-8df9-9ba6ecd1db04)
 
 # Home page
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/7e7a9f11-4110-40bb-957d-71fa949db195)
+
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/23cabc8d-1aff-4f26-95e4-3adc16776491)
+
 # CRUD Categories
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/d67a748e-5e9a-42cb-9d80-e61791a37b8a)
 
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/3c188512-585c-473f-b75f-3a0cba67f051)
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/290d77c2-daa0-43c1-b993-7a6c840945dc)
-
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/ffeffd3e-a600-44f4-b675-b3a4bad278c2)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/dd5db1e7-b587-4a88-933d-93d4d686ceed)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/6406d153-9dae-4225-8163-5f512c0d1fdb)
+## La sous categorie est mise a jour
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/53ed842d-2469-4d5b-b900-6a03c1e42208)
 
 # Recherche d'articles Par Categorie
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/d7db249b-48e1-4782-b689-96fc1837a1da)
-# Par Date
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/24bc6be4-45f3-43d6-9e68-2d2ba7548fed)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/4cc5c7c3-db1d-478d-87ff-30ee4e424b4b)
+
+# Entre deux dates
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/a0907b1f-3624-47e8-a7be-71790e65b548)
 
 # Dashboard pour montrer le nombre d'Articles par Categorie
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/4e94d178-426b-4440-8135-c56e86d9e920)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/de4478f3-032e-4bdf-ac47-42437cac17eb)
 
 # Les donnees sont bien enregistrees dans la BD
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/97765507-1480-4429-af40-322155639de9)
-![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/5eb360f7-5c6d-4efe-91b9-a5dc12788511)
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/3bf05059-9d75-42eb-af1c-2f6a2fdc5344)
+
+## Table categorie
+![image](https://github.com/mayss14/Java-server-Faces-Web-Application/assets/96689689/f7bb5efa-97e9-4620-9859-2eda1cae011c)
+
 
 
 
